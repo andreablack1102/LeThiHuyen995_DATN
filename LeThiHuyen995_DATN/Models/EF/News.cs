@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace LeThiHuyen995_DATN.Models.EF
 {
@@ -11,13 +12,15 @@ namespace LeThiHuyen995_DATN.Models.EF
     public class News : CommonAbstract
     {
         [Key]
-        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]//id tu tang
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]//id auto increase
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="Bạn không được để trống tiêu đề tin")]
         [StringLength(150)]
         public string Title { get; set; }
+        public string Alias { get; set; }
         public string Description { get; set; }
+        [AllowHtml] 
         public string Detail { get; set; }
         public string Image { get; set; }
         public int CategoryId { get; set; }

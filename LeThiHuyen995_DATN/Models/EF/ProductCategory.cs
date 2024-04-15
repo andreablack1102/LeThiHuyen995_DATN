@@ -16,7 +16,7 @@ namespace LeThiHuyen995_DATN.Models.EF
         }
 
         [Key]
-        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]//id tu tang
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]//id auto increase
         public int Id { get; set; }
 
         [Required]
