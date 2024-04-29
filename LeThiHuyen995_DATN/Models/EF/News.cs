@@ -18,16 +18,22 @@ namespace LeThiHuyen995_DATN.Models.EF
         [Required(ErrorMessage ="Bạn không được để trống tiêu đề tin")]
         [StringLength(150)]
         public string Title { get; set; }
+        [StringLength(150)]
         public string Alias { get; set; }
         public string Description { get; set; }
         [AllowHtml] 
         public string Detail { get; set; }
+        [StringLength(250)]
         public string Image { get; set; }
         public int CategoryId { get; set; }
+        [StringLength(250)]
         public string SeoTitle { get; set; }
-        public string SeoDescription { get; set; }
-        public string SeoKeywords { get; set; }
 
+        [StringLength(500)]
+        public string SeoDescription { get; set; }
+        [StringLength(250)]
+        public string SeoKeywords { get; set; }
+        public bool IsActive {  get; set; }
         public virtual Category Category { get; set; }
     }
 }

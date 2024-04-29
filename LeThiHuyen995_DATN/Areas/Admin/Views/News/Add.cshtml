@@ -1,6 +1,8 @@
 ﻿@model LeThiHuyen995_DATN.Models.EF.News
 @{
-    ViewBag.Title = "Thêm mới tin tức";
+    //Thêm mới tin tức
+    ViewBag.Title = "Tin tức";
+    ViewBag.Title1 = "tin tức";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
@@ -14,7 +16,7 @@
             <a href="/admin" class="nav-link">Trang chủ</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="/admin/news" class="nav-link">Tin tức</a>
+            <a href="/admin/news" class="nav-link">@ViewBag.Title</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
             <a href="#" class="nav-link">Thêm mới</a>
@@ -27,11 +29,11 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Thêm mới danh mục</h1>
+                <h1>Thêm mới @ViewBag.Title1</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Tin tức</a></li>
+                    <li class="breadcrumb-item"><a href="#">@ViewBag.Title</a></li>
                     <li class="breadcrumb-item active">Thêm mới</li>
                 </ol>
             </div>
@@ -45,7 +47,7 @@
     <!-- Default box -->
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Thông tin thêm mới danh mục</h3>
+            <h3 class="card-title">Thông tin thêm mới @ViewBag.Title1</h3>
         </div>
         <div class="card-body">
             <div class="bs-stepper-content">
@@ -54,48 +56,53 @@
                     @Html.AntiForgeryToken()
                     @Html.ValidationSummary(true)
                     <!-- your steps content here -->
-                    <div id="logins-part" class="content" role="tabpanel" aria-labelledby="logins-part-trigger">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Tiêu đề</label>
-                            @Html.TextBoxFor(x => x.Title, new { @class = "form-control", @placeholder = "Tiêu đề" })
-                            @Html.ValidationMessageFor(x => x.Title, null, new { @class = "text-danger" })
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputFile">Ảnh đại diện</label>
-                            <div class="input-group">
-                                <div class="custom-file">
-                                    @Html.TextBoxFor(x => x.Image, new { @id = "txtImage", @class = "form-control" })
-                                </div>
-                                <div class="input-group-append">
-                                    <input type="button" value="Tải ảnh" onclick="BrowerServer('txtImage')"/>
-                                </div>
+                <div id="logins-part" class="content" role="tabpanel" aria-labelledby="logins-part-trigger">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Tiêu đề</label>
+                        @Html.TextBoxFor(x => x.Title, new { @class = "form-control", @placeholder = "Tiêu đề" })
+                        @Html.ValidationMessageFor(x => x.Title, null, new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputFile">Ảnh đại diện</label>
+                        <div class="input-group">
+                            <div class="custom-file">
+                                @Html.TextBoxFor(x => x.Image, new { @id = "txtImage", @class = "form-control" })
+                            </div>
+                            <div class="input-group-append">
+                                <input type="button" value="Tải ảnh" onclick="BrowerServer('txtImage')" />
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Mô tả</label>
-                            @Html.TextAreaFor(x => x.Description, new { @class = "form-control" })
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Chi tiết</label>
-                            @Html.TextBoxFor(x => x.Detail, new { @class = "form-control", @id = "txtDetail" })
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Seo title</label>
-                            @Html.TextAreaFor(x => x.SeoDescription, new { @class = "form-control" })
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Seo Description</label>
-                            @Html.TextAreaFor(x => x.SeoDescription, new { @class = "form-control" })
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Seo Keywords</label>
-                            @Html.TextAreaFor(x => x.SeoKeywords, new { @class = "form-control" })
-                        </div>
-                        <div class="form-group">
-                            <a href="/admin/category" class="btn btn-danger">Quay lại</a>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
                     </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Mô tả</label>
+                        @Html.TextAreaFor(x => x.Description, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Chi tiết</label>
+                        @Html.TextAreaFor(x => x.Detail, new { @class = "form-control", @id = "txtDetail" })
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Hiển thị</label>
+                        @Html.CheckBoxFor(x => x.IsActive, new { @checked = "checked" })
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Seo title</label>
+                        @Html.TextAreaFor(x => x.SeoTitle, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Seo Description</label>
+                        @Html.TextAreaFor(x => x.SeoDescription, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Seo Keywords</label>
+                        @Html.TextAreaFor(x => x.SeoKeywords, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Lưu</button>
+                        <a href="/admin/news" class="btn btn-danger">Quay lại</a>
+
+                    </div>
+                </div>
 
                 }
             </div>
@@ -121,7 +128,6 @@
                 extraAllowedContent: 'span',
             });
         });
-
         //manage file, upload file -> save to folder Upload
         function BrowerServer(field) {
             var finder = new CKFinder();

@@ -33,7 +33,7 @@ namespace LeThiHuyen995_DATN.Models.EF
 
         [StringLength(150)]
         public string SeoKeywords { get; set; }
-
+        public bool IsActive { get; set; }
         public ICollection<News> News { get; set; }
         public ICollection<Posts> Posts { get; set; }
     }
