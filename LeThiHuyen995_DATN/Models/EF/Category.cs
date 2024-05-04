@@ -22,7 +22,7 @@ namespace LeThiHuyen995_DATN.Models.EF
         [StringLength(150)]
         public string Title { get; set; }
         public string Alias { get; set; }
-        public string Description { get; set; }
+        public string Description { get; set; }      
         public int Position { get; set; }
 
         [StringLength(150)]

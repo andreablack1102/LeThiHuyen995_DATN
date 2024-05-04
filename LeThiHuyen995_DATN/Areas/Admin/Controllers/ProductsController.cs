@@ -141,6 +141,19 @@ namespace LeThiHuyen995_DATN.Areas.Admin.Controllers
             }
             return Json(new { success = false });
         }
+        [HttpPost]
+        public ActionResult IsSale(int id)
+        {
+            var item = db.Products.Find(id);
+            if (item != null)
+            {
+                item.IsSale = !item.IsSale;
+                db.Entry(item).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+                return Json(new { success = true, isSale = item.IsSale });
+            }
+            return Json(new { success = false });
+        }
 
         [HttpPost]
         public ActionResult DeleteAll(string ids)
