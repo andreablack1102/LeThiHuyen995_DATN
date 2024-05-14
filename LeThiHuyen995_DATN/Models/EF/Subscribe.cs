@@ -13,7 +13,9 @@ namespace LeThiHuyen995_DATN.Models.EF
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]//id auto increase
         public int Id { get; set; }
+        [EmailAddress]
+        [Required]
         public string Email { get; set; }
-        public DateTime CreatedTime { get; set; }
+        public DateTime CreatedDate { get; set; }
     }
 }

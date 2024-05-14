@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace LeThiHuyen995_DATN.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin,Manager,Employee")]
     public class ProductsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

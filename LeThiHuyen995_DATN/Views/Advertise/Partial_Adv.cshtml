@@ -1,0 +1,21 @@
+﻿@model IEnumerable<LeThiHuyen995_DATN.Models.EF.Adv>
+
+@if (Model != null && Model.Any())
+{
+    foreach (var item in Model)
+    {
+        <div class="main_slider" style="background-image: url(@item.Image)">
+            <div class="container fill_height">
+                <div class="row align-items-center fill_height">
+                    <div class="col">
+                        <div class="main_slider_content">
+                            <h2 style="background: white; text-align: center">@item.Title</h2>
+
+                            @*<div class="red_button shop_now_button"><a href="#">shop now</a></div>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}

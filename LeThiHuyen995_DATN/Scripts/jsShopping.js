@@ -50,12 +50,14 @@
         
     });
 
+   
+
     $('body').on('click', '.btnDeleteAll', function (e) {
         e.preventDefault();//off href
         var conf = confirm('Bạn có chắc muốn xóa hết sản phẩm trong giỏ hàng?');
         if (conf === true) {
             DeleteAll();
-            //location.reload();
+            /*location.reload();*/
         }
     });
 });

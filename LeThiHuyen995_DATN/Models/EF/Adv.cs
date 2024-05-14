@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace LeThiHuyen995_DATN.Models.EF
 {
@@ -18,7 +19,7 @@ namespace LeThiHuyen995_DATN.Models.EF
         [StringLength(150)]
         public string Title { get; set; }
 
-        [StringLength(500)]
+        [AllowHtml]
         public string Description { get; set; }
 
         [StringLength(500)]

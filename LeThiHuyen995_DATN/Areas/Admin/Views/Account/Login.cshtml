@@ -1,0 +1,60 @@
+﻿@model LeThiHuyen995_DATN.Models.LoginViewModel
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<div class="card-body login-card-body">
+    <p class="login-box-msg">Đăng nhập</p>
+    @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true);
+        <div class="input-group mb-3">
+            @*<input type="email" class="form-control" placeholder="Email">*@
+            @Html.TextBoxFor(x => x.UserName, new { @class = "form-control", @placeholder = "Tên tài khoản" })
+            <div class="input-group-append">
+                <div class="input-group-text">
+                    <span class="fas fa-envelope"></span>
+                </div>
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            @*<input type="password" class="form-control" placeholder="Password">*@
+            @Html.TextBoxFor(x => x.Password, new { @class = "form-control", @placeholder = "Mật khẩu" })
+            <div class="input-group-append">
+                <div class="input-group-text">
+                    <span class="fas fa-lock"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <div class="icheck-primary">
+                    @Html.CheckBoxFor(x => x.RememberMe)
+                    @*<input type="checkbox" id="remember">*@
+                    <label for="remember">
+                        Remember Me
+                    </label>
+                </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-4">
+                <button type="submit" class="btn btn-sm btn-primary btn-block">Đăng nhập</button>
+            </div>
+            <!-- /.col -->
+        </div>
+
+    }
+
+    <!-- /.social-auth-links -->
+
+    <p class="mb-1">
+        <a href="forgot-password.html">Quên mật khẩu</a>
+    </p>
+    @*<p class="mb-0">
+          <a href="register.html" class="text-center">Register a new membership</a>
+        </p>*@
+</div>
+
+

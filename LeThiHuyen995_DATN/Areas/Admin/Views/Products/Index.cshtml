@@ -61,9 +61,9 @@
                         <th>STT</th>
                         <th>Hình ảnh</th>
                         <th>Tên sản phẩm</th>
-                        <th>Danh mục</th>
                         <th>Số lượng</th>
                         <th>Giá</th>
+                        <th>Giá KM</th>
                         <th>Ngày tạo</th>
                         <th>Home</th>
                         <th>Sale</th>
@@ -86,10 +86,10 @@
                                 <td><input type="checkbox" class="cbkItem" value="@item.Id" /></td>
                                 <td>@i</td>
                                 <td><img class="imgproduct" data-id="@item.Id" src="@item.ProductImage.FirstOrDefault(x=>x.IsDefault).Image" width="50" /> </td>
-                                <td >@item.Title</td>
-                                <td>@item.ProductCategory.Title</td>
+                                <td>@item.Title</td>
                                 <td>@item.Quantity</td>
                                 <td>@LeThiHuyen995_DATN.Common.Common.FormatNumber(item.Price, 0)</td>
+                                <td>@LeThiHuyen995_DATN.Common.Common.FormatNumber(item.PriceSale, 0)</td>
                                 <td>@item.CreatedDate.ToString("dd/MM/yyyy")</td>
                                 <td class="text-center">
                                     <a href='#' data-id="@item.Id" class="btnHome"> @Html.Raw(strCheckHome)</a>

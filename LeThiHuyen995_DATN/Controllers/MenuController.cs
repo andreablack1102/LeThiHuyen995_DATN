@@ -22,11 +22,11 @@ namespace LeThiHuyen995_DATN.Controllers
         }
 
         //SUA THANH 3 SAN PHAM CO LUOT TRUY CAP NHIEU NHAT
-        //public ActionResult MenuProductCategory()
-        //{
-        //    var items = db.ProductCategories.Take(3).ToList();
-        //    return PartialView("_MenuProductCategory", items);
-        //}
+        public ActionResult MenuProductCategory()
+        {
+            var items = db.ProductCategories.Take(3).ToList();
+            return PartialView("_MenuProductCategory", items);
+        }
         public ActionResult MenuLeft(int? id)
         {
             if (id != null)

@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace LeThiHuyen995_DATN.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Manager,Employee")]
     public class NewsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

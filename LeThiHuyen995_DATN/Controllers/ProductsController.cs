@@ -40,6 +40,13 @@ namespace LeThiHuyen995_DATN.Controllers
         public ActionResult Detail(string alias, int id)
         {
             var item = db.Products.Find(id);
+            if(item != null)
+            {
+                db.Products.Attach(item);
+                item.ViewCount = item.ViewCount + 1;
+                db.Entry(item).Property(x=>x.ViewCount).IsModified = true;
+                db.SaveChanges();
+            }
             return View(item);
         }
         public ActionResult FilterByProductCategoryId(string alias, int id, int? page)
@@ -68,7 +75,7 @@ namespace LeThiHuyen995_DATN.Controllers
 
         public ActionResult Partial_ItemByCateId()
         {
-            var items = db.Products.Where(x => x.IsHome && x.IsActive).Take(12).ToList();
+            var items = db.Products.OrderByDescending(x => x.CreatedDate).Where(x => x.IsHome && x.IsActive).Take(15).ToList();
             return PartialView(items);
         }
 

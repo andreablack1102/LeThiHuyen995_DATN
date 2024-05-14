@@ -25,10 +25,15 @@
                     @Html.Action("Partial_Item_Cart", "ShoppingCart")
                 </div>
                 <div class="col-md-12">
-                    <div class="text-right">
-                        <a href="#" class="btn btn-danger btnDeleteAll">Xóa hết</a>
-                        <a href="/thanh-toan" class="btn btn-success btnAll">Thanh toán</a>
-                    </div>
+                    @if (ViewBag.CheckCart != null)
+                    {
+                        <div class="text-right">
+                            <a href="#" class="btn btn-danger btnDeleteAll">Xóa hết</a>
+                            @*<a href="#" class="btn btn-primary btnUpdateAll">Cập nhật</a>*@
+                            <a href="/thanh-toan" class="btn btn-success btnAll">Thanh toán</a>
+                        </div>
+                    }
+
                 </div>
             </div>
         </div>
@@ -37,4 +42,5 @@
 
 @section scripts{
     <script src="~/Content/assets/js/categories_custom.js"></script>
+    
 }
