@@ -13,6 +13,7 @@ using LeThiHuyen995_DATN.Models;
 namespace LeThiHuyen995_DATN.Controllers
 {
     [Authorize]
+    
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
@@ -50,6 +51,32 @@ namespace LeThiHuyen995_DATN.Controllers
             {
                 _userManager = value;
             }
+        }
+
+        public async Task<ActionResult> Profile1()
+        {
+            var user = await UserManager.FindByNameAsync(User.Identity.Name);
+            var item = new CreateAccountViewModel();
+            item.Email = user.Email;
+            item.FullName = user.FullName;
+            item.Phone = user.Phone;
+            item.UserName = user.UserName;
+            return View(item);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> PostProfile(CreateAccountViewModel req)
+        {
+            var user = await UserManager.FindByEmailAsync(req.Email);
+            user.FullName = req.FullName;
+            user.Phone = req.Phone;
+            var rs = await UserManager.UpdateAsync(user);
+            if (rs.Succeeded)
+            {
+                return RedirectToAction("Profile1");
+            }
+            return View(req);
         }
 
         //

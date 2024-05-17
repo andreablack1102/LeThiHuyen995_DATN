@@ -14,13 +14,17 @@ namespace LeThiHuyen995_DATN.Areas.Admin.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         // GET: Admin/Products
-        public ActionResult Index(int? page)
+        public ActionResult Index(string searchText, int? page)
         {
             IEnumerable<Product> items = db.Products.OrderByDescending(x => x.CreatedDate);
             var pageSize = 10;
             if (page == null)
             {
                 page = 1;
+            }
+            if (!string.IsNullOrEmpty(searchText))
+            {
+                items = items.Where(x => x.Alias.Contains(LeThiHuyen995_DATN.Models.Common.Filter.FilterChar(searchText)) || x.Title.Contains(searchText));
             }
             var pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
             items = items.ToPagedList(pageIndex, pageSize);

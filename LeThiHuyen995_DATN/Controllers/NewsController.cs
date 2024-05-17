@@ -34,7 +34,7 @@ namespace LeThiHuyen995_DATN.Controllers
         }
         public ActionResult Partial_News_Home()
         {
-            var items = db.News.Take(3).ToList();
+            var items = db.News.OrderByDescending(x=>x.CreatedDate).Take(3).ToList();
             return PartialView(items);
         }
     }

@@ -13,7 +13,7 @@ namespace LeThiHuyen995_DATN.Controllers
         // GET: Advertise
         public ActionResult Index()
         {
-            var item = db.Advs.FirstOrDefault(x => x.Id == 3);
+            var item = db.Advs.Find(2);
             return View(item);
         }
         public ActionResult Partial_Adv()

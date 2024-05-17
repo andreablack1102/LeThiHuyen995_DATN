@@ -1,0 +1,26 @@
+﻿@model IEnumerable<LeThiHuyen995_DATN.Models.EF.Order>
+@if (Model != null)
+{
+    var i = 1;
+    <h4>Lịch sử mua hàng</h4>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td>STT</td>
+                <td>Mã DH</td>
+                <td>Tổng tiền</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@i</td>
+                    <td><a href="/chi-tiet-don/@item.Id">@item.Code</a></td>
+                    <td>@item.TotalAmount</td>
+                </tr>
+                i++;
+            }
+        </tbody>
+    </table>
+}

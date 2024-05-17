@@ -15,6 +15,7 @@ namespace LeThiHuyen995_DATN.Models.EF
         {
             this.ProductImage = new HashSet<ProductImage>();
             this.OrderDetails = new HashSet<OrderDetail>();
+            this.Reviews = new HashSet<ReviewProduct>();
         }
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]//id tu tang
@@ -51,6 +52,7 @@ namespace LeThiHuyen995_DATN.Models.EF
         public virtual ProductCategory ProductCategory { get; set; }
         public virtual ICollection<ProductImage> ProductImage { get; set; }
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+        public virtual ICollection<ReviewProduct> Reviews { get; set; }
 
     }
 }

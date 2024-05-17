@@ -18,10 +18,26 @@
 
             <!-- Breadcrumbs -->
             <div class="breadcrumbs d-flex flex-row align-items-center">
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li class="active"><a href="/"><i class="fa fa-angle-right" aria-hidden="true"></i>@ViewBag.CateName</a></li>
-                </ul>
+                <div class="col-5">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li class="active"><a href="/"><i class="fa fa-angle-right" aria-hidden="true"></i>@ViewBag.CateName</a></li>
+                    </ul>
+                </div>
+                <div class="col-6">
+                    @using (Html.BeginForm("Index", "Products", FormMethod.Get, new { }))
+                    {
+                        <div class="input-group input-group-sm">
+                            @Html.TextBox("searchText", null, new { @class = "form-control" })
+                            @*<input type="text" name="searchTesxt" class="form-control">*@
+                            <span class="input-group-append">
+                                <button type="submit" class="btn btn-info btn-flat"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+                    }
+
+
+                </div>
             </div>
 
             <!-- Sidebar -->
@@ -29,7 +45,7 @@
             <div class="sidebar">
                 <div class="sidebar_section">
                     <div class="sidebar_title">
-                        <h5>Danh mục sản phẩm</h5>
+                        <h6>Danh mục sản phẩm</h6>
                     </div>
                     @Html.Action("MenuLeft", "Menu")
                 </div>
@@ -49,7 +65,7 @@
                 </div>
 
                 <hr />
-                @Html.Action("Refresh", "Home")
+                @*@Html.Action("Refresh", "Home")*@
 
             </div>
 
@@ -68,26 +84,26 @@
                             <div class="product_sorting_container product_sorting_container_top">
                                 <ul class="product_sorting">
                                     <li>
-                                        <span class="type_sorting_text">Default Sorting</span>
+                                        <span class="type_sorting_text">Sắp xếp</span>
                                         <i class="fa fa-angle-down"></i>
                                         <ul class="sorting_type">
-                                            <li class="type_sorting_btn" data-isotope-option='{ "sortBy": "original-order" }'><span>Default Sorting</span></li>
-                                            <li class="type_sorting_btn" data-isotope-option='{ "sortBy": "price" }'><span>Price</span></li>
-                                            <li class="type_sorting_btn" data-isotope-option='{ "sortBy": "name" }'><span>Product Name</span></li>
+                                            <li class="type_sorting_btn" data-isotope-option='{ "sortBy": "original-order" }'><span>Sắp xếp</span></li>
+                                            <li class="type_sorting_btn" data-isotope-option='{ "sortBy": "price" }'><span>Giá</span></li>
+                                            <li class="type_sorting_btn" data-isotope-option='{ "sortBy": "name" }'><span>Tên sản phẩm</span></li>
                                         </ul>
                                     </li>
-                                    <li>
-                                        <span>Show</span>
-                                        <span class="num_sorting_text">All</span>
-                                        <i class="fa fa-angle-down"></i>
-                                        <ul class="sorting_num">
-                                            <li class="num_sorting_btn"><span>6</span></li>
-                                            <li class="num_sorting_btn"><span>12</span></li>
-                                            <li class="num_sorting_btn"><span>24</span></li>
-                                        </ul>
-                                    </li>
+                                    @*<li>
+                                            <span>Show</span>
+                                            <span class="num_sorting_text">All</span>
+                                            <i class="fa fa-angle-down"></i>
+                                            <ul class="sorting_num">
+                                                <li class="num_sorting_btn"><span>6</span></li>
+                                                <li class="num_sorting_btn"><span>12</span></li>
+                                                <li class="num_sorting_btn"><span>24</span></li>
+                                            </ul>
+                                        </li>*@
                                 </ul>
-                                
+
 
                             </div>
 
@@ -120,19 +136,19 @@
                                                 {
                                                     <div class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center"><span>new</span></div>
                                                 }
-                                            <div class="product_info">
-                                                <h6 class="product_name"><a href="/chitiet/@item.Alias-p@(item.Id)">@item.Title</a></h6>
-                                                @if (item.PriceSale > 0)
-                                                {
-                                                    <div class="product_price">@Common.FormatNumber(item.PriceSale, 0)<span>@Common.FormatNumber(item.Price, 0)</span></div>
-                                                    <div style="display:none;" class="in_product_price">@item.PriceSale</div>
-                                                }
-                                                else
-                                                {
-                                                    <div class="product_price">@Common.FormatNumber(item.Price, 0)</div>
-                                                    <div style="display:none;" class="in_product_price">@item.Price</div>
-                                                }
-                                            </div>
+                                                <div class="product_info">
+                                                    <h6 class="product_name"><a href="/chitiet/@item.Alias-p@(item.Id)">@item.Title</a></h6>
+                                                    @if (item.PriceSale > 0)
+                                                    {
+                                                        <div class="product_price">@Common.FormatNumber(item.PriceSale, 0)<span>@Common.FormatNumber(item.Price, 0)</span></div>
+                                                        <div style="display:none;" class="in_product_price">@item.PriceSale</div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="product_price">@Common.FormatNumber(item.Price, 0)</div>
+                                                        <div style="display:none;" class="in_product_price">@item.Price</div>
+                                                    }
+                                                </div>
                                             </div>
                                             <div class="red_button add_to_cart_button"><a href="#" class="btnAddToCart" data-id="@item.Id">Thêm vào giỏ</a></div>
                                         </div>
@@ -148,19 +164,19 @@
                             </div>
                             <!-- Product Sorting -->
                             <!--<div class="product_sorting_container product_sorting_container_bottom clearfix">
-        <ul class="product_sorting">
-            <li>
-                <span>Show:</span>
-                <span class="num_sorting_text">04</span>
-                <i class="fa fa-angle-down"></i>
-                <ul class="sorting_num">
-                    <li class="num_sorting_btn"><span>01</span></li>
-                    <li class="num_sorting_btn"><span>02</span></li>
-                    <li class="num_sorting_btn"><span>03</span></li>
-                    <li class="num_sorting_btn"><span>04</span></li>
-                </ul>
-            </li>
-        </ul>-->
+                            <ul class="product_sorting">
+                                <li>
+                                    <span>Show:</span>
+                                    <span class="num_sorting_text">04</span>
+                                    <i class="fa fa-angle-down"></i>
+                                    <ul class="sorting_num">
+                                        <li class="num_sorting_btn"><span>01</span></li>
+                                        <li class="num_sorting_btn"><span>02</span></li>
+                                        <li class="num_sorting_btn"><span>03</span></li>
+                                        <li class="num_sorting_btn"><span>04</span></li>
+                                    </ul>
+                                </li>
+                            </ul>-->
                             @*</div>*@
 
                         </div>

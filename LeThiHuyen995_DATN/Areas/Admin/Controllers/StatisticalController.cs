@@ -1,10 +1,12 @@
 ﻿using LeThiHuyen995_DATN.Models;
+using LeThiHuyen995_DATN.Models.EF;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 
 namespace LeThiHuyen995_DATN.Areas.Admin.Controllers
 {
@@ -56,6 +58,35 @@ namespace LeThiHuyen995_DATN.Areas.Admin.Controllers
             });
             return Json(new { Data = result }, JsonRequestBehavior.AllowGet);
         }
+        [HttpGet]
+        public ActionResult GetStatisticalByMonth(string fromDate, string toDate)
+        {
+            
+            var query = from od in db.OrderDetails
+                         join o in db.Orders on od.OrderId equals o.Id
+                         join p in db.Products on od.ProductId equals p.Id
+                         group new { od, p } by new { o.CreatedDate.Month } into g
+                         select new
+                         {
+                             Month = g.Key.Month,
+                             DoanhThu = g.Sum(x => x.od.Price * x.od.Quantity),
+                             LoiNhuan = g.Sum(x => (x.p.Price - x.p.OriginalPrice) * x.od.Quantity)
+                         };
+            if (!string.IsNullOrEmpty(fromDate))
+            {
+                DateTime startDate = DateTime.ParseExact(fromDate, "MM/yyyy", null).AddMonths(-3);
+                query = query.Where(x => x.Month >= startDate.Month );
+            }
+            if (!string.IsNullOrEmpty(toDate))
+            {
+                DateTime endDate = DateTime.ParseExact(toDate, "MM/yyyy", null).AddMonths(1);
+                query = query.Where(x => x.Month < endDate.Month);
+            }
+
+            return Json(new { Data = query }, JsonRequestBehavior.AllowGet);
+        }
 
     }
+
 }
+

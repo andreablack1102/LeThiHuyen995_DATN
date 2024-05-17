@@ -31,6 +31,12 @@ namespace LeThiHuyen995_DATN
                 namespaces: new[] { "LeThiHuyen995_DATN.Controllers" }
             );
             routes.MapRoute(
+                name: "ChiTietDon",
+                url: "chi-tiet-don/{id}",
+                defaults: new { controller = "Review", action = "Detail", id = UrlParameter.Optional },
+                namespaces: new[] { "LeThiHuyen995_DATN.Controllers" }
+            );
+            routes.MapRoute(
                 name: "CategoryProduct",
                 url: "danh-muc-san-pham/{alias}-{id}",
                 defaults: new { controller = "Products", action = "FilterByProductCategoryId", id = UrlParameter.Optional },
@@ -39,7 +45,7 @@ namespace LeThiHuyen995_DATN
             routes.MapRoute(
                 name: "Intro",
                 url: "gioi-thieu",
-                defaults: new { controller = "About", action = "Index", alias = UrlParameter.Optional },
+                defaults: new { controller = "Advertise", action = "Index", alias = UrlParameter.Optional },
                 namespaces: new[] { "LeThiHuyen995_DATN.Controllers" }
             );
 
@@ -57,10 +63,11 @@ namespace LeThiHuyen995_DATN
             );
             routes.MapRoute(
                 name: "NewsList",
-                url: "tin-tuc",
+                url: "bai-viet",
                 defaults: new { controller = "News", action = "Index", alias = UrlParameter.Optional },
                 namespaces: new[] { "LeThiHuyen995_DATN.Controllers" }
             );
+            
             routes.MapRoute(
                 name: "DetailNews",
                 url: "{alias}-n{id}",

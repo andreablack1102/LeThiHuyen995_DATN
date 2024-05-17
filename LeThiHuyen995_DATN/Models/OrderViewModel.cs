@@ -16,7 +16,9 @@ namespace LeThiHuyen995_DATN.Models
 
         [Required(ErrorMessage = "Địa chỉ không để trống")]
         public string Address { get; set; }
+        public string CustomerId { get; set; }
         public int TypePayment { get; set; }
+        public int TypePaymentVN { get; set; }
 
     }
 }

@@ -1,4 +1,4 @@
-﻿
+﻿@using LeThiHuyen995_DATN.Common
 @{
     ViewBag.Title = "Liên hệ";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -25,13 +25,13 @@
     <!-- Map Container -->
 
     <div class="row">
-        <div class="col">
+        <div class="col-md-4">
             <h3>Thông tin liên hệ</h3>
             <p>Tên: Huyền Lê</p>
-            <p>SDT: 0326.780.187</p>
-            <p>Email: huyenhuyen111002@gmail.com</p>
+            <p>SDT: @SettingHelper.GetValue("SettingHotline")</p>
+            <p>Email: @SettingHelper.GetValue("SettingEmail")</p>
         </div>
-        <div class="col">
+        <div class="col-md-8">
             <div id="google_map">
                 <div class="map_container">
                     <div id="map">
@@ -43,7 +43,6 @@
     </div>
 
     <!-- Contact Us -->
-
     <!--<div class="row">
 
         <div class="col-lg-6 contact_col">
@@ -62,10 +61,8 @@
                     <p>Sunday: Closed</p>
                 </div>
             </div>-->
-
-            <!-- Follow Us -->
-
-            <!--<div class="follow_us_contents">
+    <!-- Follow Us -->
+    <!--<div class="follow_us_contents">
                 <h1>Follow Us</h1>
                 <ul class="social d-flex flex-row">
                     <li><a href="#" style="background-color: #3a61c9"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>

@@ -27,6 +27,5 @@ namespace LeThiHuyen995_DATN.Models.EF
 
         [StringLength(500)]
         public string Link { get; set; }
-        public int Type { get; set; }
     }
 }

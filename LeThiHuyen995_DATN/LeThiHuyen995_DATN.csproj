@@ -205,73 +205,14 @@
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\ReviewController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202404101518443_CreatedDatabase.cs" />
-    <Compile Include="Migrations\202404101518443_CreatedDatabase.designer.cs">
-      <DependentUpon>202404101518443_CreatedDatabase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202404141606496_UpdateCategory.cs" />
-    <Compile Include="Migrations\202404141606496_UpdateCategory.designer.cs">
-      <DependentUpon>202404141606496_UpdateCategory.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202404141632108_UpdateData.cs" />
-    <Compile Include="Migrations\202404141632108_UpdateData.designer.cs">
-      <DependentUpon>202404141632108_UpdateData.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202404141712072_UpdateData1.cs" />
-    <Compile Include="Migrations\202404141712072_UpdateData1.designer.cs">
-      <DependentUpon>202404141712072_UpdateData1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202404191313437_UpdateActive.cs" />
-    <Compile Include="Migrations\202404191313437_UpdateActive.designer.cs">
-      <DependentUpon>202404191313437_UpdateActive.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202404221653221_ChangModels.cs" />
-    <Compile Include="Migrations\202404221653221_ChangModels.designer.cs">
-      <DependentUpon>202404221653221_ChangModels.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202404231152023_UpdateProductCategory.cs" />
-    <Compile Include="Migrations\202404231152023_UpdateProductCategory.designer.cs">
-      <DependentUpon>202404231152023_UpdateProductCategory.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202404231400277_UpdateProductCategory2.cs" />
-    <Compile Include="Migrations\202404231400277_UpdateProductCategory2.designer.cs">
-      <DependentUpon>202404231400277_UpdateProductCategory2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202404250407471_UpdatePrImgePr.cs" />
-    <Compile Include="Migrations\202404250407471_UpdatePrImgePr.designer.cs">
-      <DependentUpon>202404250407471_UpdatePrImgePr.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202404250535010_UpdatePriceSale.cs" />
-    <Compile Include="Migrations\202404250535010_UpdatePriceSale.designer.cs">
-      <DependentUpon>202404250535010_UpdatePriceSale.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202405070552443_updateDatabase.cs" />
-    <Compile Include="Migrations\202405070552443_updateDatabase.designer.cs">
-      <DependentUpon>202405070552443_updateDatabase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202405101050176_CreateTbThongKe.cs" />
-    <Compile Include="Migrations\202405101050176_CreateTbThongKe.designer.cs">
-      <DependentUpon>202405101050176_CreateTbThongKe.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202405131727282_updateSubcribe1.cs" />
-    <Compile Include="Migrations\202405131727282_updateSubcribe1.designer.cs">
-      <DependentUpon>202405131727282_updateSubcribe1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202405132105479_updateỎgPrice.cs" />
-    <Compile Include="Migrations\202405132105479_updateỎgPrice.designer.cs">
-      <DependentUpon>202405132105479_updateỎgPrice.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202405140047198_deletePost.cs" />
-    <Compile Include="Migrations\202405140047198_deletePost.designer.cs">
-      <DependentUpon>202405140047198_deletePost.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202405140421339_changeAdv.cs" />
-    <Compile Include="Migrations\202405140421339_changeAdv.designer.cs">
-      <DependentUpon>202405140421339_changeAdv.cs</DependentUpon>
+    <Compile Include="Migrations\202405161053440_CreateDb.cs" />
+    <Compile Include="Migrations\202405161053440_CreateDb.designer.cs">
+      <DependentUpon>202405161053440_CreateDb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -288,6 +229,7 @@
     <Compile Include="Models\EF\Product.cs" />
     <Compile Include="Models\EF\ProductCategory.cs" />
     <Compile Include="Models\EF\ProductImage.cs" />
+    <Compile Include="Models\EF\ReviewProduct.cs" />
     <Compile Include="Models\EF\Subscribe.cs" />
     <Compile Include="Models\EF\SystemSetting.cs" />
     <Compile Include="Models\EF\ThongKe.cs" />
@@ -3396,6 +3338,7 @@
     <Content Include="Areas\Admin\Views\Adv\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Adv\Add.cshtml" />
     <Content Include="Areas\Admin\Views\Adv\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Account\Edit.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -3468,11 +3411,18 @@
     <Content Include="Views\Advertise\Partial_Adv.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Advertise\Index.cshtml" />
+    <Content Include="Views\Account\Profile1.cshtml" />
+    <Content Include="Views\Review\_Review.cshtml" />
+    <Content Include="Views\Review\_Load_Review.cshtml" />
+    <Content Include="Views\Review\LichSuDonHang.cshtml" />
+    <Content Include="Views\Review\Detail.cshtml" />
+    <Content Include="Views\Products\Partial_ProductSimilar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Content\ckfinder\userfiles\" />
+    <Folder Include="obj\Debug\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
@@ -3502,53 +3452,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202404101518443_CreatedDatabase.resx">
-      <DependentUpon>202404101518443_CreatedDatabase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202404141606496_UpdateCategory.resx">
-      <DependentUpon>202404141606496_UpdateCategory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202404141632108_UpdateData.resx">
-      <DependentUpon>202404141632108_UpdateData.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202404141712072_UpdateData1.resx">
-      <DependentUpon>202404141712072_UpdateData1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202404191313437_UpdateActive.resx">
-      <DependentUpon>202404191313437_UpdateActive.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202404221653221_ChangModels.resx">
-      <DependentUpon>202404221653221_ChangModels.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202404231152023_UpdateProductCategory.resx">
-      <DependentUpon>202404231152023_UpdateProductCategory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202404231400277_UpdateProductCategory2.resx">
-      <DependentUpon>202404231400277_UpdateProductCategory2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202404250407471_UpdatePrImgePr.resx">
-      <DependentUpon>202404250407471_UpdatePrImgePr.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202404250535010_UpdatePriceSale.resx">
-      <DependentUpon>202404250535010_UpdatePriceSale.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202405070552443_updateDatabase.resx">
-      <DependentUpon>202405070552443_updateDatabase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202405101050176_CreateTbThongKe.resx">
-      <DependentUpon>202405101050176_CreateTbThongKe.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202405131727282_updateSubcribe1.resx">
-      <DependentUpon>202405131727282_updateSubcribe1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202405132105479_updateỎgPrice.resx">
-      <DependentUpon>202405132105479_updateỎgPrice.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202405140047198_deletePost.resx">
-      <DependentUpon>202405140047198_deletePost.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202405140421339_changeAdv.resx">
-      <DependentUpon>202405140421339_changeAdv.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202405161053440_CreateDb.resx">
+      <DependentUpon>202405161053440_CreateDb.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

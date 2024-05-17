@@ -1,7 +1,7 @@
 ﻿@model LeThiHuyen995_DATN.Models.EF.Adv
 @{
     ViewBag.Title = "Giới thiệu";
-    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <link rel="stylesheet" type="text/css" href="~/Content/assets/styles/main_styles.css">
 
@@ -30,24 +30,25 @@
     }
 </style>
 <div class="container news_section_container">
-    <div class="row">
-        <div class="col-md-12">
-            <h1 class="title-news"> @ViewBag.Title</h1>
-        </div>
-    </div>
+
     @*@if (Model != null && Model.Any())
     {
         foreach (var item in Model)
         {*@
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="title-news">@Model.Title</h1>
+                </div>
+            </div>
             <div class="row row-item-new">
                 <div class="col-md-3">
                     <div class="img-box">
-                        <a href="#" ><img src="@Model.Image" alt="@Model.Title" /></a>
+                        <a href="#"><img src="@Model.Image" alt="@Model.Title" /></a>
                     </div>
                 </div>
                 <div class="col-md-9">
                     <div class="content-box">
-                        <h3><a href="#" >@Model.Title</a></h3>
+                        
                         <div class="description-box">
                             @Html.Raw(Model.Description)
                         </div>

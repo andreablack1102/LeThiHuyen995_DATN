@@ -53,7 +53,22 @@
             </div>
         </div>
         <div class="card-body">
-            
+            <div class="row">
+                <div class="col-6">
+                    @using (Html.BeginForm("Index", "Products", FormMethod.Get, new { }))
+                    {
+                        <div class="input-group input-group-sm">
+                            @Html.TextBox("searchText", null, new { @class = "form-control" })
+                            @*<input type="text" name="searchTesxt" class="form-control">*@
+                            <span class="input-group-append">
+                                <button type="submit" class="btn btn-info btn-flat"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+                    }
+
+
+                </div>
+            </div>
             <table class="table table-hover">
                 <thead>
                     <tr>

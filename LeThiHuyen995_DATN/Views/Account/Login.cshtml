@@ -2,7 +2,7 @@
 @model LoginViewModel
 @{
     ViewBag.Title = "Đăng nhập";
-    
+
 }
 <link rel="stylesheet" type="text/css" href="~/Content/assets/styles/main_styles.css">
 
@@ -33,40 +33,52 @@
                             @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                         </div>
                     </div>
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <div class="checkbox">
-                                @Html.CheckBoxFor(m => m.RememberMe)
-                                @Html.LabelFor(m => m.RememberMe)
+                    @*<div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <div class="checkbox">
+                                    @Html.CheckBoxFor(m => m.RememberMe)
+                                    @Html.LabelFor(m => m.RememberMe)
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                        </div>*@
                     <div class="form-group">
+
                         <div class="col-md-offset-2 col-md-10">
                             <input type="submit" value="Đăng nhập" class="btn btn-outline-dark" />
                         </div>
+
                     </div>
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
                             <p>
                                 @Html.ActionLink("Đăng ký", "Register")
+
                             </p>
                         </div>
-                        
+
                     </div>
-                        @* Enable this once you have account confirmation enabled for password reset functionality
-                <p>
-                    @Html.ActionLink("Forgot your password?", "ForgotPassword")
-                </p>*@
-                        }
-                </section>
+                    @* Enable this once you have account confirmation enabled for password reset functionality
+                        <p>
+                            @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                        </p>*@
+                }
+            </section>
         </div>
         <div class="col-md-2"></div>
         @*<div class="col-md-4">
-            <section id="socialLoginForm">
-                @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
-            </section>
-        </div>*@
+                <section id="socialLoginForm">
+                    @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+                </section>
+            </div>*@
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <a href="/" class="btn btn-sm btn-primary">Quay lại</a>
+            </div>
+        </div>
+        <div class="col-md-9"></div>
     </div>
 </div>
 
