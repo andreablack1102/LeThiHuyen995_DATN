@@ -31,6 +31,12 @@ namespace LeThiHuyen995_DATN
                 namespaces: new[] { "LeThiHuyen995_DATN.Controllers" }
             );
             routes.MapRoute(
+                name: "vnp_return",
+                url: "vnp_return",
+                defaults: new { controller = "ShoppingCart", action = "VnpayReturn", alias = UrlParameter.Optional },
+                namespaces: new[] { "LeThiHuyen995_DATN.Controllers" }
+            );
+            routes.MapRoute(
                 name: "ChiTietDon",
                 url: "chi-tiet-don/{id}",
                 defaults: new { controller = "Review", action = "Detail", id = UrlParameter.Optional },

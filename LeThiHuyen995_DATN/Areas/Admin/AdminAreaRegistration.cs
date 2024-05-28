@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using System.Web.Razor.Parser.SyntaxTree;
 
 namespace LeThiHuyen995_DATN.Areas.Admin
 {
@@ -20,6 +21,13 @@ namespace LeThiHuyen995_DATN.Areas.Admin
                 new { action = "Index", id = UrlParameter.Optional },
                 namespaces: new[] { "LeThiHuyen995_DATN.Areas.Admin.Controllers" }
             );
+            context.MapRoute(
+                "Admin_home",
+                "admin",
+                new {controller="Home", action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "LeThiHuyen995_DATN.Areas.Admin.Controllers" }
+            );
+            
         }
     }
 }

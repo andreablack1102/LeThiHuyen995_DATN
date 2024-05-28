@@ -65,9 +65,7 @@
                         <p>@Model.Description</p>
                         <p>Lượt xem: <b>@Model.ViewCount</b></p>
                     </div>
-                    @*<div class="free_delivery d-flex flex-row align-items-center justify-content-center">
-                            <span class="ti-truck"></span><span>free delivery</span>
-                        </div>*@
+                    
                     @if (Model.PriceSale > 0)
                     {
                         <div class="original_price">@LeThiHuyen995_DATN.Common.Common.FormatNumber(Model.Price, 0)</div>

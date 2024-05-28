@@ -95,12 +95,23 @@
                             var strCheck = item.IsActive ? "<i class='fa fa-check text-success'> </i> " : "<i class='fas fa-times text-danger'> </i>";
                             var strCheckHome = item.IsHome ? "<i class='fa fa-check text-success'> </i> " : "<i class='fas fa-times text-danger'> </i>";
                             var strCheckSale = item.IsSale ? "<i class='fa fa-check text-success'> </i> " : "<i class='fas fa-times text-danger'> </i>";
+                            var imageSrc = "";
+                            try
+                            {
+                                imageSrc = item.ProductImage.FirstOrDefault(x => x.IsDefault).Image;
+
+                            }
+                            catch (Exception e)
+                            {
+                                imageSrc = "";
+                            }
+
 
                             <tr id="trow_@item.Id">
                                 <!--delete row don't need relead'-->
                                 <td><input type="checkbox" class="cbkItem" value="@item.Id" /></td>
                                 <td>@i</td>
-                                <td><img class="imgproduct" data-id="@item.Id" src="@item.ProductImage.FirstOrDefault(x=>x.IsDefault).Image" width="50" /> </td>
+                                <td><img class="imgproduct" data-id="@item.Id" src="@imageSrc" width="50" /> </td>
                                 <td>@item.Title</td>
                                 <td>@item.Quantity</td>
                                 <td>@LeThiHuyen995_DATN.Common.Common.FormatNumber(item.Price, 0)</td>

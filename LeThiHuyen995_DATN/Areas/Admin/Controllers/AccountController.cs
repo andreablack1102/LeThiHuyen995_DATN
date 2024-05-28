@@ -91,7 +91,7 @@ namespace LeThiHuyen995_DATN.Areas.Admin.Controllers
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
                 case SignInStatus.Failure:
                 default:
-                    ModelState.AddModelError("", "Tài khoản hoặc mật khẩu không hợp lệ. Mời nhập lại!");
+                    ModelState.AddModelError("", "Tài khoản hoặc mật khẩu không đúng. Vui lòng nhập lại!");
                     return View(model);
             }
         }

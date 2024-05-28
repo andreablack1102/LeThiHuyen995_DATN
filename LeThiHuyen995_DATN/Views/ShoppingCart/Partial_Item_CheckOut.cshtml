@@ -5,13 +5,13 @@
 {
     @*<h5>SẢN PHẨM CỦA BẠN <span  style="float:right;">@Model.Count()</span></h5>*@
     var total = decimal.Zero;
-    var i = 0;
+    //var i = 0;
     <div @*style="border: 1px solid black"*@>
         <table class="table">
             <tr>
                 <th colspan="2">SẢN PHẨM CỦA BẠN</th>
-                <th >@Model.Count()</th>
-                
+                <th>@Model.Count()</th>
+
             </tr>
             @foreach (var item in Model)
             {

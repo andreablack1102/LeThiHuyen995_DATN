@@ -54,8 +54,10 @@
                         <th>Mã đơn hàng</th>
                         <th>Tên khách hàng</th>
                         <th>Số điện thoại</th>
+                        <th>Địa chỉ</th>
                         <th>Tổng tiền</th>
                         <th>Ngày tạo</th>
+                        <th>Phương thức thanh toán</th>
                         <th>Trạng thái</th>
                         <th></th>
                     </tr>
@@ -71,9 +73,29 @@
                                 <td>@item.Code </td>
                                 <td>@item.CustomerName</td>
                                 <td>@item.Phone</td>
+                                <td>@item.Address</td>
                                 <td>@LeThiHuyen995_DATN.Common.Common.FormatNumber(item.TotalAmount, 0)</td>
                                 <td>@item.CreatedDate.ToString("dd/MM/yyyy")</td>
-                                <td>@(item.TypePayment ==1 ? "Chờ thanh toán" : "Đã thanh toán")</td>
+                                <td>@(item.TypePayment ==1 ? "COD" : "Chuyển khoản")</td>
+                                <td>
+                                    @if (item.Status == 1)
+                                    {
+                                        <span>Chưa thanh toán</span>
+                                    }
+                                    @if (item.Status == 2)
+                                    {
+                                        <span>Đã thanh toán</span>
+                                    }
+                                    @if (item.Status == 3)
+                                    {
+                                        <span>Hoàn thành</span>
+                                    }
+                                    @if (item.Status == 4)
+                                    {
+                                        <span>Hủy</span>
+                                    }
+
+                                </td>
                                 <td>
                                     <a href="/admin/order/view/@item.Id" class="btn btn-sm btn-success">Xem</a>
                                     <a href="#" class="btn btn-sm btn-danger btnUpdate" data-id="@item.Id">Cập nhật</a>
@@ -125,13 +147,16 @@
                 <div class="form-group">
                     <label>Trạng thái</label>
                     <select class="form-control" id="ddTrangThai">
+                        <option value="1">Chưa thanh toán</option>
                         <option value="2">Đã thanh toán</option>
+                        <option value="3">Hoàn thành</option>
+                        <option value="4">Hủy</option>
                     </select>
                 </div>
             </div>
             <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-                <button type="button" class="btn btn-primary" id="btnSave" >Lưu</button>
+                <button type="button" class="btn btn-primary" id="btnSave">Lưu</button>
             </div>
         </div>
         <!-- /.modal-content -->

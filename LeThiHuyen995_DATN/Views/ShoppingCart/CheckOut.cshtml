@@ -3,7 +3,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <style>
-    .error{color: red;}
+    .error {
+        color: red;
+    }
 </style>
 <link rel="stylesheet" type="text/css" href="~/Content/assets/styles/categories_styles.css">
 <link rel="stylesheet" type="text/css" href="~/Content/assets/styles/categories_responsive.css">
@@ -58,23 +60,17 @@
                 $('#show_success').html("Bạn mua hàng thất bại! Xin vui lòng thử lại");
             }
         }
-        
-        //$(document).ready(function () {
-        //    $('#myForm').validate({
-        //        rules: {
-        //            'CustomerName': { required: true },
-        //            'Phone': { required: true },
-        //            'Address': {
-        //                required: true
-        //            }
-        //        },
-        //        messages: {
-        //            'CustomerName': 'Bạn không để trống dòng này',
-        //            'Phone': 'Bạn không để trống dòng này',
-        //            'Address': 'Bạn không để trống dòng này'
-        //        }
-        //    });
-        //});
+        $(document).ready(function () {
+            $('body').on('change', '#drTypePayment', function () {
+                var type = $(this).val();
+                $('#load_form_payment').hide();
+                if (type == "2") {
+                    $('#load_form_payment').show();
+                }
+            });
+  
+        });
+
     </script>
 }
 

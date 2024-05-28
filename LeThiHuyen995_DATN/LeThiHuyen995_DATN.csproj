@@ -236,6 +236,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\OrderViewModel.cs" />
+    <Compile Include="Models\Payments\VnPayLibrary.cs" />
     <Compile Include="Models\SettingSystemViewModel.cs" />
     <Compile Include="Models\ShoppingCart.cs" />
     <Compile Include="Models\ThongKeViewModel.cs" />
@@ -3339,6 +3340,14 @@
     <Content Include="Areas\Admin\Views\Adv\Add.cshtml" />
     <Content Include="Areas\Admin\Views\Adv\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Account\Edit.cshtml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
+    <None Include="Properties\PublishProfiles\huyenle11-001-site1 - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\huyenle11-001-site1 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\site4739-WebDeploy.pubxml" />
+    <None Include="Properties\PublishProfiles\site4739-WebDeploy1.pubxml" />
+    <None Include="Properties\PublishProfiles\site4739-WebDeploy2.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -3409,7 +3418,6 @@
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\News\Detail.cshtml" />
     <Content Include="Views\Advertise\Partial_Adv.cshtml" />
-    <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Advertise\Index.cshtml" />
     <Content Include="Views\Account\Profile1.cshtml" />
     <Content Include="Views\Review\_Review.cshtml" />
@@ -3417,6 +3425,7 @@
     <Content Include="Views\Review\LichSuDonHang.cshtml" />
     <Content Include="Views\Review\Detail.cshtml" />
     <Content Include="Views\Products\Partial_ProductSimilar.cshtml" />
+    <Content Include="Views\ShoppingCart\VnpayReturn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

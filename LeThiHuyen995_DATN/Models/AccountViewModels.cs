@@ -48,12 +48,12 @@ namespace LeThiHuyen995_DATN.Models
 
     public class LoginViewModel
     {
-        [Required]
+        [Required(ErrorMessage ="Vui lòng nhập trường này")]
         [Display(Name = "UserName")]
         
         public string UserName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Vui lòng nhập trường này")]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
@@ -63,20 +63,26 @@ namespace LeThiHuyen995_DATN.Models
     }
     public class CreateAccountViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Vui lòng nhập trường này")]
+        [Display(Name = "UserName")]
         public string UserName { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Vui lòng nhập trường này")]
+        [Display(Name = "FullName")]
         public string FullName { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Vui lòng nhập trường này")]
+        [Display(Name = "Phone")]
         public string Phone { get; set; }
+        [Required(ErrorMessage = "Vui lòng nhập trường này")]
+        [Display(Name = "Address")]
+        public string Address { get; set; }
         public List<string> Roles { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Vui lòng nhập trường này")]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Vui lòng nhập trường này")]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
@@ -84,18 +90,24 @@ namespace LeThiHuyen995_DATN.Models
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Compare("Password", ErrorMessage = "Password and Confirmation password không giống nhau.")]
         public string ConfirmPassword { get; set; }
     }
 
     public class EditAccountViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Vui lòng nhập trường này")]
+        [Display(Name = "UserName")]
         public string UserName { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Vui lòng nhập trường này")]
+        [Display(Name = "FullName")]
         public string FullName { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Vui lòng nhập trường này")]
+        [Display(Name = "Phone")]
         public string Phone { get; set; }
+        [Required(ErrorMessage = "Vui lòng nhập trường này")]
+        [Display(Name = "Address")]
+        public string Address { get; set; }
         public List<string> Roles { get; set; }
 
         [Required]
@@ -109,20 +121,20 @@ namespace LeThiHuyen995_DATN.Models
     public class RegisterViewModel
     {
 
-        [Required]
+        [Required(ErrorMessage = "Vui lòng nhập trường này")]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [Required(ErrorMessage = "Vui lòng nhập trường này")]
+        [StringLength(100, ErrorMessage = "{0} cần ít nhất {2} kí tự.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Compare("Password", ErrorMessage = "Password and Confirmation password không giống nhau.")]
         public string ConfirmPassword { get; set; }
     }
 

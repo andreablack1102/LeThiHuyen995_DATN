@@ -48,7 +48,7 @@ namespace LeThiHuyen995_DATN.Areas.Admin.Controllers
             if(item != null)
             {
                 db.Orders.Attach(item);
-                item.TypePayment = trangThai;
+                item.Status = trangThai;
                 db.Entry(item).Property(x=>x.TypePayment).IsModified = true;
                 db.SaveChanges();
                 return Json(new { message = "Success", success = true });
